@@ -1,10 +1,9 @@
 use anyhow::{anyhow, Ok, Result};
-use clap::{Args, Command, Parser, Subcommand};
+use clap::{Args, Parser, Subcommand};
 use colored::*;
 use mime::Mime;
-use reqwest::{header, Client, Request, Response, Url};
+use reqwest::{header, Client, Response, Url};
 use std::collections::HashMap;
-use std::ptr::NonNull;
 use std::str::FromStr;
 
 #[derive(Parser)]

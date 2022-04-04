@@ -64,13 +64,13 @@ impl SpecTransform<&Contrast> for Photon {
 }
 
 impl SpecTransform<&Fliph> for Photon {
-    fn transform(&mut self, op: &Fliph) {
+    fn transform(&mut self, _: &Fliph) {
         transform::fliph(&mut self.0)
     }
 }
 
 impl SpecTransform<&Flipv> for Photon {
-    fn transform(&mut self, op: &Flipv) {
+    fn transform(&mut self, _: &Flipv) {
         transform::flipv(&mut self.0)
     }
 }

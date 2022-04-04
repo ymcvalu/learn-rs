@@ -3,12 +3,12 @@ use axum::{
     extract::{Extension, Path},
     handler::get,
     http::{HeaderMap, HeaderValue, StatusCode},
-    AddExtension, AddExtensionLayer, Router,
+    AddExtensionLayer, Router,
 };
 use bytes::Bytes;
 use engine::{Engine, Photon};
 use lru::LruCache;
-use percent_encoding::{percent_decode, percent_decode_str, percent_encode, NON_ALPHANUMERIC};
+use percent_encoding::{percent_decode_str, percent_encode, NON_ALPHANUMERIC};
 use serde::Deserialize;
 use std::{
     collections::hash_map::DefaultHasher,
@@ -17,8 +17,8 @@ use std::{
     sync::Arc,
 };
 use tokio::sync::Mutex;
-use tower::{ServiceBuilder, ServiceExt};
-use tracing::{info, instrument};
+use tower::ServiceBuilder;
+use tracing::info;
 
 mod engine;
 mod pb;
