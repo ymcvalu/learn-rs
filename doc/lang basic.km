@@ -1,0 +1,301 @@
+{
+    "root": {
+        "data": {
+            "id": "ciyzozapj9c0",
+            "created": 1648825032976,
+            "text": "lang basic"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "ciyzp0n1l680",
+                    "created": 1648825035899,
+                    "text": "数据"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciyzpkowdts0",
+                            "created": 1648825079547,
+                            "text": "值和类型"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyzpr9i1zs0",
+                                    "created": 1648825093853,
+                                    "text": "类型是对值的区分，它包含了值在内存中的长度、对齐以及值可以进行的操作等信息；值是无法脱离具体的类型讨论的；"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzq18tajs0",
+                                    "created": 1648825115579,
+                                    "text": "原生类型"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciyzqbs1u5c0",
+                                            "created": 1648825138510,
+                                            "text": "byte, int, float, bool, array, tuple, ptr, ref, fn, closure .etc"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ciyzqeqgens0",
+                                            "created": 1648825144944,
+                                            "text": "所有原生类型的大小都是固定的，因此它们可以被分配到栈上"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzq58rdyw0",
+                                    "created": 1648825124283,
+                                    "text": "组合类型"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ciyzqn4puhs0",
+                                            "created": 1648825163221,
+                                            "text": "结构体(product type)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "ciyzqrdh6o80",
+                                                    "created": 1648825172458,
+                                                    "text": "多个类型组合在一起共同表达一个值的复杂数据结构"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "ciyzqoc9jw00",
+                                            "created": 1648825165854,
+                                            "text": "标签联合(sum type)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "ciyzquw4j800",
+                                                    "created": 1648825180116,
+                                                    "text": "可以存储一组不同但固定的类型中的某个类型的对象，具体是哪个类型由其标签决定"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciyzpmmfdr40",
+                            "created": 1648825083751,
+                            "text": "指针和引用"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyzr0a14p40",
+                                    "created": 1648825191840,
+                                    "text": "引用（reference）和指针非常类似，不同的是，引用的解引用访问是受限的，它只能解引用到它引用数据的类型，不能用作它用"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzr5payww0",
+                                    "created": 1648825203648,
+                                    "text": "根据指向数据的不同，某些引用除了需要一个指针指向内存地址之外，还需要内存地址的长度和其它信息。这种比正常指针携带更多信息的指针，我们称之为胖指针（fat pointer）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ciyzp4nwbv40",
+                    "created": 1648825044658,
+                    "text": "代码"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciyzs2e94400",
+                            "created": 1648825274813,
+                            "text": "函数，方法和闭包"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyzs8zlnqw0",
+                                    "created": 1648825289165,
+                                    "text": "闭包是将函数，或者说代码和其环境一起存储的一种数据结构。闭包引用的上下文中的自由变量，会被捕获到闭包的结构中，成为闭包类型的一部分"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciyzs3zpy940",
+                            "created": 1648825278288,
+                            "text": "接口和虚表"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyzsdy05bs0",
+                                    "created": 1648825299952,
+                                    "text": "作为一个抽象层，接口将使用方和实现方隔离开来，使两者不直接有依赖关系，大大提高了复用性和扩展性"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzsjd8ahk0",
+                                    "created": 1648825311757,
+                                    "text": "在运行期使用接口来引用具体类型的时候，代码就具备了运行时多态的能力。但是，在运行时，一旦使用了关于接口的引用，变量原本的类型被抹去，无法单纯从一个指针分析出这个引用具备什么样的能力"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzsnu0qf40",
+                                    "created": 1648825321479,
+                                    "text": "在生成这个引用的时候，我们需要构建胖指针，除了指向数据本身外，还需要指向一张涵盖了这个接口所支持方法的列表。这个列表，就是我们熟知的虚表（virtual table）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ciyzp8c8urc0",
+                    "created": 1648825052660,
+                    "text": "运行方式"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciyzt5yrpls0",
+                            "created": 1648825360948,
+                            "text": "并发和并行"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyztc3gd7s0",
+                                    "created": 1648825374292,
+                                    "text": "并发是同时与多件事情打交道的能力"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyztfair7k0",
+                                    "created": 1648825381250,
+                                    "text": "并行是同时处理多件事情的手段"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciyzt8syro00",
+                            "created": 1648825367128,
+                            "text": "同步和异步"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyztilct1s0",
+                                    "created": 1648825388435,
+                                    "text": "同步是指一个任务开始执行后，后续的操作会阻塞，直到这个任务结束。同步执行保证了代码的因果关系（causality），是程序正确性的保证"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyztn75x4g0",
+                                    "created": 1648825398461,
+                                    "text": "异步是指一个任务开始执行后，与它没有因果关系的其它任务可以正常执行，不必等待前一个任务结束"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyztr72zr40",
+                                    "created": 1648825407163,
+                                    "text": "async 定义了一个可以并发执行的任务，而 await 则触发这个任务并发执行"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ciyzpcd7cw00",
+                    "created": 1648825061425,
+                    "text": "编程范式"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ciyzu34jkcw0",
+                            "created": 1648825433131,
+                            "text": "数据结构的泛行"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciyzu91f46g0",
+                                    "created": 1648825446003,
+                                    "text": "可以把参数化数据结构理解成一个产生类型的函数，在“调用”时，它接受若干个使用了具体类型的参数，返回携带这些类型的类型"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "ciyzuc0a22w0",
+                                    "created": 1648825452465,
+                                    "text": "它带来的好处是我们可以延迟绑定，让数据结构的通用性更强，适用场合更广阔；也大大减少了代码的重复，提高了可维护性"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "ciyzu63as000",
+                            "created": 1648825439586,
+                            "text": "代码的泛行化"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
