@@ -52,6 +52,10 @@ where
     }
 }
 
+// unsafe feature `!xx`
+// 显示声明 `Reader<R>` 不实现 `Sync`
+// impl <R> !Sync  for  Reader<R> {}
+
 trait Api {
     type O: Default + Sized;
     fn do_something();
@@ -66,4 +70,23 @@ impl<T: Api<O = i32>> G<T> {
         // <T as Api> 对泛行类型做强制类型转换
         <T as Api>::O::default()
     }
+}
+
+/// 泛型参数默认是`Sized`，如果不需要该约束，可以使用`?Sized`
+struct UnSizedDemo<'a, T: 'a + ?Sized> {
+    r: &'a T,
+}
+
+struct SizedDemo<'a, T: 'a> {
+    r: &'a T,
+}
+
+fn test_unsizedDemo() {
+    let s = "123";
+
+    let us = UnSizedDemo::<str> { r: &s };
+
+    // Error: the size for values of type `str` cannot be known at compilation time,
+    // the trait `Sized` is not implemented for `str`
+    // let s = SizedDemo::<str> { r: &s };
 }

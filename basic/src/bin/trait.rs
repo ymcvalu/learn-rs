@@ -2,12 +2,12 @@
 /// > **`trait`和实现`trait`的数据类型，至少有一个是在当前`crate`中定义的**，
 /// 也就是说，你不能为第三方的类型实现第三方的`trait`
 fn main() {
-    let api = api;
-    api.batch_get(vec![1, 2, 3]);
+    let _api = api;
+    _api.batch_get(vec![1, 2, 3]);
 
     // Fully Qualified Syntax for Disambiguation: Calling Methods with the Same Name
     // api 有 Api<i32, i32> 实现和 Api<i64, i64> 实现，
-    // 编译器无法推断需要执行哪个实现的方法，需要使用`<api as Api<i32, i32>>`显示指定
+    // 编译器无法推断需要执行哪个实现的方法，需要使用`<Type as trait>`显示指定
     <api as Api<i64, i64>>::batch_do();
     Api::<i64, i64>::batch_get(&api, vec![1, 2, 3]);
 
@@ -188,3 +188,43 @@ trait Child: Parent {
 // - 类型擦除，无法确定`Self`的具体类型和大小；
 // - 泛型在编译的时候做单态化，而`trait object`是运行时的产物，两者不能兼容；
 // 如果一个`trait`只有部分方法返回`Self`或者使用了泛型参数，那么这部分方法在`trait object`中不能调用；
+
+trait Maker {
+    type T;
+    fn make() -> Self::T;
+}
+
+trait Newer {
+    type T;
+    fn new() -> Self::T;
+}
+
+struct maker;
+
+impl maker {
+    fn get_inst() -> String {
+        <Self as Maker>::make()
+    }
+}
+
+impl Maker for maker {
+    type T = String;
+
+    fn make() -> Self::T {
+        "xxx".into()
+    }
+}
+
+impl Newer for maker {
+    // 引用在其他trait实现中的定义
+    type T = <Self as Maker>::T;
+
+    fn new() -> Self::T {
+        <Self as Maker>::make()
+    }
+}
+
+fn maker_demo() {
+    maker::make();
+    let m1 = maker {};
+}

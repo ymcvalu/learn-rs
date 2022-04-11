@@ -23,6 +23,15 @@ fn main() {
     let event4 = Event::Leave(bob.id, topic.id);
     // {:?} 打印实现了 Debug trait 的类型值
     println!("{:?} {:?} {:?} {:?}", event1, event2, event3, event4);
+
+    let t1 = Topic {
+        id: TopicID(2),
+        ..topic // 其他字段从topic获取，topic.name is partial moved
+    };
+
+    // Error: topic.name has patial moved
+    // print!("{:?}", topic);
+    println!("{:?}", t1);
 }
 
 // 派生宏，自动实现trait
@@ -45,6 +54,7 @@ struct User {
 #[derive(Debug, Clone, Copy)]
 struct TopicID(u64);
 
+#[derive(Debug)]
 struct Topic {
     id: TopicID,
     name: String,
