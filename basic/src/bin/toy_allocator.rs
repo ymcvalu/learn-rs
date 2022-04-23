@@ -23,7 +23,7 @@ fn main() {
     let _ = Box::<String>::new("xxx".into());
 
     // Box会先执行内部数据的drop方法，然后再释放内存
-    let c = Child { str: "xxxx".into() };
+    let c = Child { str: "xxxxx".into() };
     let p = Parent { child: Box::new(c) };
     let p = Box::new(p);
 }
